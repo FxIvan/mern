@@ -1,4 +1,4 @@
-const usuarioController = {}
+const UsuariosController = {}
 
 const Usuario = require('../models/Usuarios') // traemos el esquema
 
@@ -30,11 +30,11 @@ UsuariosController.getBuscarID = async(req,res)=>{ //GET
 }
 
 UsuariosController.getDelete = async(req,res)=>{ //GET
-    Usuario.findByIdAndDelete(req.params.id) //elimina el objeto por el tipo de ID
+    await Usuario.findByIdAndDelete(req.params.id) //elimina el objeto por el tipo de ID, sin el await no me dejaba hacer la peticion de delete
     res.json({message:"Se a borrado exitosamente"})
 }
 
-usuarioController.Update = async(req,res)=>{
+UsuariosController.Update = async(req,res)=>{
     const {nombre,apellido,edad,telefono,correo} = req.body
     await Usuario.findByIdAndUpdate(req.params.id, {
         nombre,
@@ -46,4 +46,4 @@ usuarioController.Update = async(req,res)=>{
     res.json({message:'El usuario se ha actualizado'})
 }
 
-module.exports = usuarioController
+module.exports = UsuariosController

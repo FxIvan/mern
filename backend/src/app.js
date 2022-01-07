@@ -12,5 +12,9 @@ app.get('/',(req,res)=>{
     res.send("Bievenido ami api Rest")
 })
 
+//Ruta para nuestra api de Usuarios
+//Hacemos que utilize una ruta especifica
+app.use('/api/usuarios', require('./routes/usuarios'))
+
 module.exports = app
 
