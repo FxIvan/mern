@@ -1,0 +1,40 @@
+body{
+    background-color: #7f7d81;
+    width: 100%;
+}
+.navbar-desktop{
+    background-color: coral;
+    height: 10vh;
+}
+
+.Link{
+    text-decoration: none;
+    font-size: 2rem;
+}
+
+h1{
+    font-family: 'Work Sans', sans-serif;
+}
+h2{
+    font-family: 'Fira Sans', sans-serif;
+}
+h3{
+    font-family: 'Work Sans', sans-serif;
+}
+h5,label{
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.5rem;
+}
+p{
+    font-family: 'Questrial', sans-serif;
+}
+span{
+    font-family: 'Abel', sans-serif;
+}
+
+.btn-volver:hover{
+    background-color: rgb(160, 105, 116);
+}
+.btn-actualizar:hover{
+    background-color: rgb(111, 160, 105);
+}

@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import axios from 'axios'
+import './formularioPrincipal.css'
 
 export const Formulario = () =>{
 
@@ -27,27 +28,37 @@ export const Formulario = () =>{
             telefono:form.telefono,
             correo:form.correo
         }
-
-        await axios.post('http://localhost:4000/api/usuarios/', newUsuario)
-
+        await axios.post('http://localhost:27017/usuarios', newUsuario)
+        window.location.href = '/'
+        
     }
-
-
     return(
-        <div>
-            <div>
-                <label>Nombre</label>
-                <input onChange={handleChange} name='nombre' placeholder='Tu Nombre' type='text'/>
-                <label>Apellido</label>
-                <input onChange={handleChange} name='apellido' placeholder='Tu Apellido' type='text'/>
-                <label>Edad</label>
-                <input onChange={handleChange} name='edad' placeholder='Tu Edad' type='number'/>
-                <label>Telefono</label>
-                <input onChange={handleChange} name='telefono' placeholder='Tu Telefono' type='number'/>
-                <label>Correo Electronico</label>
-                <input onChange={handleChange} name='correo' placeholder='Tu Correo' type='text'/>
-                <button type='button' onClick={handleSubmit}>Enviar</button>
+        <div className='formulario-principal'>
+        <div className='container mt-5 m-auto col-12 d-flex justify-content-center'>
+            <div className='row col-5 text-center'>
+                <div className='col-12'>
+                    <label for="formControlInput" class="form-label">Nombre</label>
+                    <input type="text" class="form-control" id="formControlInput" placeholder="Tu Nombre"  onChange={handleChange} name='nombre'/>
                 </div>
+                <div className='col-12 mt-2'>
+                    <label for="formControlInput" class="form-label">Apellido</label>
+                    <input type="text" class="form-control" id="formControlInput" placeholder="Apellido"  onChange={handleChange} name='apellido'/>
+                </div>
+                <div className='col-12 mt-2'>
+                    <label for="formControlInput" class="form-label">Edad</label>
+                    <input type="number" class="form-control" id="formControlInput" placeholder="Tu Edad"  onChange={handleChange} name='edad'/>
+                </div>
+                <div className='col-12 mt-2'>
+                    <label for="formControlInput" class="form-label">Telefono</label>
+                    <input type="number" class="form-control" id="formControlInput" placeholder="Tu Telefono"  onChange={handleChange} name='telefono'/>
+                </div>
+                <div className='col-12 mt-2'>
+                <label for="formControlInput" class="form-label">Correo Electronico</label>
+                <input type="email" class="form-control" id="formControlInput" placeholder="Tu Correo Electronico"  onChange={handleChange} name='correo'/>
+                </div>
+                <button type='button' onClick={handleSubmit} className='btn btn-dark mt-4 col-4  m-auto'>Enviar</button>
+            </div>
+        </div>
         </div>
     )
 }

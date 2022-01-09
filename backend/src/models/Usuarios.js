@@ -16,4 +16,4 @@ const UsuariosSchema = Schema({
 }
 )
 
-module.exports = model('Usuarios', UsuariosSchema) //dentro de la db se la va a definir como Esquema a Usuarios
+module.exports = model('usuarios', UsuariosSchema) //dentro de la db se la va a definir como Esquema a Usuarios

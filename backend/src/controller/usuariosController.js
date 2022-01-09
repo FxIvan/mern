@@ -1,11 +1,12 @@
 const UsuariosController = {}
 
+const { model } = require('mongoose')
 const Usuario = require('../models/Usuarios') // traemos el esquema
 
 //Son 5 arrow function por que hay 5 pedidos(dos get,post.put y delete)
 
 UsuariosController.getUser = async(req,res)=>{ //GET
-    const UsuarioPedido = await Usuario.find() //vamos a traer todo los usuairo
+    const UsuarioPedido = await Usuario.find() //vamos a traer todo los usuarios
     res.json(UsuarioPedido) //vamos a pedir todos los usuarios que haya en un JSON
 }
 
@@ -25,7 +26,7 @@ UsuariosController.getCreate = async(req,res)=>{ //POST
 }
 
 UsuariosController.getBuscarID = async(req,res)=>{ //GET
-    const newUsuarioId = await Usuario.findById(req.params.id)//Encuentra en Mongo su ID
+    const newUsuarioId = await Usuario.findById(req.params.id)//Encuentra en Mongo su ID, mongo ya crea un ID por defecto
     res.json(newUsuarioId)
 }
 

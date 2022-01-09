@@ -1,11 +1,7 @@
 const mongoose = require('mongoose')
 
-const URI = process.env.DB_URL ? process.env.DB_URL : 'mongodb://localhost/mern'
+const {MONGO_HOST,MONGO_PORT,MONGO_RUTA} = process.env; //es mas seguro que este en env, por que este nose puede ver en el reposotorio
 
+const URI = `mongodb://${MONGO_HOST}:${MONGO_PORT}/${MONGO_RUTA}`
 mongoose.connect(URI)
 
-const connection = mongoose.connection
-
-connection.once('open',()=>{
-    console.log('Conexion Establecida:', URI)
-})
